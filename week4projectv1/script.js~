@@ -1,0 +1,52 @@
+
+
+var cohortOne = ["AA", "BB", "CC", "DD"];
+
+var cohortTwo = ["Aa", "Bb", "Cc", "Dd"];
+
+var cohortThree = ["aA", "bB", "cC", "dD","eE"];
+
+var cohortFour = ["aAa", "bBb", "cCc", "dDd"];
+
+var cohortFive = ["A", "B", "C", "D"];
+
+var cohortSix = ["a", "b", "c", "d"];
+
+var cohortSeven = ["1", "2", "3", "4"];
+
+var allCohorts = [cohortOne, cohortTwo, cohortThree, cohortFour, cohortFive, cohortSix, cohortSeven];
+
+var nameArray = []
+
+$(".submitBtn").on("click", function(e) {
+	e.preventDefault();
+
+	var cohortInput = $(".input").val();
+	console.log(cohortInput);
+
+	var nameOne = allCohorts[cohortInput][Math.floor(Math.random()*allCohorts[cohortInput].length)];
+
+	if (nameArray.length < 4) {
+		nameArray.unshift(nameOne);
+	} else {
+		nameArray.unshift(nameOne);
+		nameArray.pop();
+	}
+	console.log(nameArray);
+
+	console.log(allCohorts[cohortInput].length)
+
+	console.log(nameOne);
+	
+	var a = nameArray.length;
+
+	$("ul").empty();
+
+	for (var i = 0; i <= a-1; i++) {
+		var listOne = $("<li>").html(nameArray[i]);
+		$("ul").append(listOne);
+	}
+
+		
+
+});

@@ -1,0 +1,66 @@
+(function($) {
+    $(document).ready(function() {
+        // var classList = ['newProducts', 'featProducts', 'specProducts'];
+        // function showProducts(productType) {
+            
+        // }
+        var scrollCount = 0
+        $('#scrollForward').on('click',function(){
+       
+            if (scrollCount == 0){
+                $('.five').fadeIn([400]).css({
+                    display:'inline-block'
+                });
+                $('.one').fadeOut([400]).css({
+                    display:'none'
+                });
+                scrollCount = 1;
+            };
+
+        });
+        
+        $('#scrollBack').on('click',function(){
+
+            if (scrollCount == 1){
+                $('.five').fadeOut([400]).css({
+                    display:'none'
+                });
+                $('.one').fadeIn([400]).css({
+                    display:'inline-block'
+                });
+                scrollCount = 0;
+            };
+
+        });
+        
+        
+        $('#newButton').on('click', function() {
+            $('.newProducts, .one, .two, .three, .four').fadeIn([400]).css({
+                display: 'inline-block'
+            });
+
+            $('.featProducts, .specProducts, .five, .six').fadeOut([400]).css({
+                display: 'none'
+            });
+        });
+
+        
+
+        $('#featButton').on('click', function(){
+            $('.featProducts').fadeIn([400]).css({
+                display: 'inline-block'
+            });
+            $('.newProducts, .specProducts').css({
+                display: 'none'
+            });
+        });
+        $('#specButton').on('click', function() {
+            $('.specProducts').fadeIn([400]).css({
+                display: 'inline-block'
+            });;
+            $('.newProducts, .featProducts').css({
+                display: 'none'
+            });
+        });
+    });
+})(jQuery);
